@@ -1,0 +1,32 @@
+@prefix utt: <https://w3id.org/utt/def/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# Minimum reusability profile: one observation must be associated with a trench,
+# either from the observation (waargenomenIn) or from the trench (heeftWaarneming).
+# Partial observations remain valid; type, material, geometry and colour are OPTIONAL.
+utt:WaarnemingMinimumShape a sh:NodeShape ;
+    sh:targetClass utt:Waarneming ;
+    rdfs:label "Minimum field observation profile"@en ;
+    sh:or (
+       [ sh:property [ sh:path utt:waargenomenIn ; sh:minCount 1 ; sh:class utt:Proefsleuf ] ]
+       [ sh:property [ sh:path [ sh:inversePath utt:heeftWaarneming ] ; sh:minCount 1 ; sh:class utt:Proefsleuf ] ]
+    ) .
+
+utt:GroundwaterTimeShape a sh:NodeShape ;
+    sh:targetClass utt:GrondCondities ;
+    sh:property [ sh:path utt:grondwaterOpnameDatum ; sh:datatype xsd:date ; sh:maxCount 1 ] .
+
+utt:GroundwaterLevelShape a sh:NodeShape ;
+    sh:targetClass utt:GrondCondities ;
+    sh:property [ sh:path utt:grondwaterNiveau ; sh:datatype xsd:decimal ] .
+
+utt:ObservedColourShape a sh:NodeShape ;
+    sh:targetClass utt:WaargenomenKenmerken ;
+    sh:property [ sh:path utt:waargenomenKleur ; sh:datatype xsd:string ] .
+
+utt:SourceRoleShape a sh:NodeShape ;
+    sh:targetClass utt:OndersteunendeData ;
+    sh:property [ sh:path utt:heeftBronRol ; sh:class utt:BronRol ; sh:maxCount 1 ] .
