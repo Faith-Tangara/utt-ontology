@@ -1,0 +1,40 @@
+/* UTT ontology: academic WIDOCO styling aligned with the TU Delft AiC visual language. */
+:root {
+  --bg-status-box: #005a9c;
+  --background-color: #ffffff;
+  --border: #26496c;
+  --htag-text: #005a9c;
+  --bg-backlink: #f0f9fc;
+  --text-backlink: #18364d;
+  --text-color: #24292f;
+  --shadow-color: rgba(17,36,58,.18);
+  --accent-color: rgba(0,90,156,.12);
+  --owl-bg: #f7f9fb;
+  --link: #075a9b;
+  --link-visited: #67478b;
+  --link-active: #074a80;
+  --href-hover: #e6f4fa;
+  --bg-hlist: #edf8fc;
+  --bg-description: #f2f5f8;
+  --literal: #236d43;
+  --type-ap: #874a37;
+  --type-op: #164e88;
+  --type-dp: #236d43;
+  --type-ni: #795381;
+}
+body { color:var(--text-color); background:var(--background-color); line-height:1.5; }
+.container { max-width:1000px; margin-inline:auto; }
+.container h1, .container h2, .container h3 { color:var(--htag-text); }
+.container h1 { font-weight:600; line-height:1.2; }
+.container a { color:var(--link); }
+.container a:hover { background:var(--href-hover); }
+#abstract p, #introduction p, #description p { line-height:1.65; }
+.hlist, .container .hlist { background:var(--bg-hlist); }
+.container table { width:100%; margin:1.25em 0; border-collapse:collapse; background:#fff; border:1px solid #d8e2ea; }
+.container table th,.container table td { border:1px solid #d8e2ea; padding:.65em .85em; vertical-align:top; }
+.container table th { background:#eef5f9; color:#183a59; }
+.container table tr:nth-child(even) { background:#f9fbfc; }
+.container table tr:hover { background:#f0f8fc; }
+.container pre { background:#f7f9fb; border-color:#cbd9e4; }
+.container code { overflow-wrap:anywhere; }
+@media (max-width:760px) { .container { padding: 0 16px; } .container table { display:block; overflow-x:auto; } }
